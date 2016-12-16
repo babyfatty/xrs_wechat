@@ -18,6 +18,7 @@ const routes = [
   { 
   	path: '/report/:id', 
   	component: Report ,
+  	name:'report',
   	children : [
 	  	{
 	  		path : 'basic',

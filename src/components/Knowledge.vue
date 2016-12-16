@@ -1,12 +1,80 @@
 <template>
-	<div>Knowledge</div>
+	<div>
+      知识点分数比重饼图
+      <canvas id="KnowledgeChart" width="400" ref="KnowledgeChart" height="400"></canvas>
+      能力五边形图
+      <canvas id="skillsChart" width="400" ref="skillsChart" height="400"></canvas>
+       知识点详情表格
+
+       <t-comment/>
+
+  </div>
+
 </template>
 
 <script>
-
+import tComment from './tComment'
 export default {
   name: 'Knowledge',
+  mounted(){
+    var ctx1 = this.$refs.KnowledgeChart;
+    var ctx2 = this.$refs.skillsChart;
+
+    var KnowledgeChart = new Chart(ctx1, {
+        type: 'pie',
+        data: {
+            labels: [
+                "Red",
+                "Blue",
+                "Yellow"
+            ],
+            datasets: [
+                {
+                    data: [300, 50, 100],
+                    backgroundColor: [
+                        "#FF6384",
+                        "#36A2EB",
+                        "#FFCE56"
+                    ],
+                    hoverBackgroundColor: [
+                        "#FF6384",
+                        "#36A2EB",
+                        "#FFCE56"
+                    ]
+                }]
+        }
+    });
+    var myRadarChart = new Chart(ctx2, {
+        type: 'radar',
+        data: {
+          labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
+          datasets: [
+              {
+                  label: "My First dataset",
+                  backgroundColor: "rgba(179,181,198,0.2)",
+                  borderColor: "rgba(179,181,198,1)",
+                  pointBackgroundColor: "rgba(179,181,198,1)",
+                  pointBorderColor: "#fff",
+                  pointHoverBackgroundColor: "#fff",
+                  pointHoverBorderColor: "rgba(179,181,198,1)",
+                  data: [65, 59, 90, 81, 56, 55, 40]
+              },
+              {
+                  label: "My Second dataset",
+                  backgroundColor: "rgba(255,99,132,0.2)",
+                  borderColor: "rgba(255,99,132,1)",
+                  pointBackgroundColor: "rgba(255,99,132,1)",
+                  pointBorderColor: "#fff",
+                  pointHoverBackgroundColor: "#fff",
+                  pointHoverBorderColor: "rgba(255,99,132,1)",
+                  data: [28, 48, 40, 19, 96, 27, 100]
+              }
+          ]
+    }
+    });  
+  },
   components: {
+    tComment
   }
 }
 </script>

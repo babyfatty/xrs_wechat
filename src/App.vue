@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-        <div v-on:click="clk">button</div>
     <hello></hello>
   </div>
 </template>
@@ -15,7 +14,6 @@ export default {
     Hello
   },
   methods: {
-    clk () { this.$router.push({name:"list"}); } 
   }
 }
 </script>

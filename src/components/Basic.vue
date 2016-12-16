@@ -1,12 +1,29 @@
 <template>
-	<div>basic</div>
+	 <div>
+	 	<basic-info/>
+		<div>{{examName}}</div>
+		<div>{{examTime}}</div>
+		<div>{{examsocre}}</div>
+		<div>{{examRank}}/{{totalNum}}</div>
+	 </div>
 </template>
 
 <script>
+import basicInfo from './basicInfo'
 
 export default {
+  data(){
+  	return{
+  		examName : "exam1",
+  		examsocre :"120",
+  		examTime : "2016/12/12",
+  		examRank : "1",
+  		totalNum : "200"
+  	}
+  },
   name: 'Basic',
   components: {
+  	basicInfo
   }
 }
 </script>
