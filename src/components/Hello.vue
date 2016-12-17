@@ -1,27 +1,38 @@
 <template>
   <div class="login">
       <form v-on:submit.prevent="goLogin">
-        <input type="text"  placeholder="请输入序号" name="userId">
-        <button>登入</button>
+          <input type="number"  v-model="uid" placeholder="请输入序号" />
+          <button>登入</button>
       </form>
+      <div v-if="invaild">
+        输入不合法
+      </div>
+      <p>Message is: {{ uid }}</p>
   </div>
 </template>
 
 <script>
-// import Vue from 'vue'
-// import Router from 'vue-router'
-
-// Vue.use(Router)
-
+let vaildate = (input)=>{
+   let reg = new RegExp("^[0-9]*$")
+   if(!reg.test(input)) return true
+}
 export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      uid:12,
+      invaild:false
     }
+  },
+  components : {
   },
   methods: {
     goLogin () {//方法，定义路由跳转，注意这里必须使用this，不然报错
+        if(vaildate(this.uid)){
+          this.invaild = true
+          return
+        } 
         this.$router.push({name:"list"});
     }
   }

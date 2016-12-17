@@ -9,7 +9,9 @@ import Knowledge from './components/Knowledge'
 import Score from './components/Score'
 import Overall from './components/Overall'
 import ReportList from './components/ReportList'
+import Validator from 'vue-validator'
 
+Vue.use(Validator)
 Vue.use(Router)
 
 const routes = [
