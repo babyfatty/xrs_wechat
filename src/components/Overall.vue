@@ -1,11 +1,16 @@
 <template>
 	<div class="overallReport reportSec">
-  <div><i class="demo"></i>你所在的分数段</div>
+  <div class="rtitle">年级总体情况</div>  
+  <div  class="xcontainer">
+    <div><i class="demo"></i>你所在的分数段</div>
   <canvas id="myChart" width="400" ref="myChart" height="400"></canvas>
-  <div class="scoreDes">
+  </div>
+  <div  class="xcontainer">
+    <div class="scoreDes">
     <div class="averageScore scoreDesDetail"><div class="scroeTitle">本次考试平均分</div><div class="scoreSub">99分</div></div>
     <div class="highestScore scoreDesDetail"><div class="scroeTitle">本次考试最高分</div><div class="scoreSub">120分</div></div>
     <div class="description"><div class="desTitle">试卷说明:</div><div class="desDetail">没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的</div></div>
+  </div>
   </div>
   <t-comment />
   </div>
@@ -102,7 +107,16 @@ export default {
   line-height: 30px;
   text-align: left;
   background: #f7fafc;
-  
-}
 
+}
+.rtitle{
+    background: #c9e5f5;
+    color: #666;
+    height: 35px;
+    line-height: 35px;
+    margin: 10px 0;
+  }
+  .xcontainer{
+    margin: 10px 0;
+  }
 </style>

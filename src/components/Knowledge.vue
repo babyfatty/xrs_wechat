@@ -1,11 +1,14 @@
 <template>
 	<div class="knowledgeReport reportSec">
-      知识点分数比重分布
-      <canvas id="KnowledgeChart" width="400" ref="KnowledgeChart" height="295"></canvas>
-      个人能力分布
-      <canvas id="skillsChart" width="400" ref="skillsChart" height="295"></canvas>
-       <div class="tableTitle">知识点详情:</div>
-       <xtable />
+      <div class="rtitle">个人知识点掌握情况</div>
+
+    <div class="xcontainer">知识点分数比重分布
+      <canvas id="KnowledgeChart" width="400" ref="KnowledgeChart" height="295"></canvas></div>
+    <div  class="xcontainer">个人能力分布
+      <canvas id="skillsChart" width="400" ref="skillsChart" height="295"></canvas></div>
+    <div  class="xcontainer"><div class="tableTitle">知识点详情:</div>
+       <xtable /></div>
+       
        <t-comment/>
   </div>
 
@@ -82,5 +85,14 @@ export default {
 </script>
 
 <style scoped>
-
+  .rtitle{
+    background: #c9e5f5;
+    color: #666;
+    height: 35px;
+    line-height: 35px;
+    margin: 10px 0;
+  }
+  .xcontainer{
+    margin: 10px 0;
+  }
 </style>

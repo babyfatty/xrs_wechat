@@ -1,11 +1,21 @@
 <template>
 	<div class="scoreReport reportSec">
+      <div class="rtitle">个人题型得分情况</div>
+      <div class="xcontainer">
       题型分数比重分布
       <canvas id="ScorePieChart" width="400" ref="ScorePieChart" height="295"></canvas>
-      题型得分布
+      </div>
+      
+      <div class="xcontainer">
+         题型得分布
       <canvas id="SocreRadarChart" width="400" ref="SocreRadarChart" height="295"></canvas>
-       <div class="tableTitle">知识点详情:</div>
+      </div>
+      
+      <div class="xcontainer">
+        <div class="tableTitle">知识点详情:</div>
        <xtable/>
+      </div>
+       
        <t-comment/>
   </div>
 </template>
@@ -86,4 +96,14 @@ export default {
   text-align: left;
   padding: 0 20px;
 }
+.rtitle{
+    background: #c9e5f5;
+    color: #666;
+    height: 35px;
+    line-height: 35px;
+    margin: 10px 0;
+  }
+  .xcontainer{
+    margin: 10px 0;
+  }
 </style>
