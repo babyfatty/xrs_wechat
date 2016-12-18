@@ -1,10 +1,10 @@
 <template>
-	 <div>
+	 <div class="basicInfoSec">
 	 	<basic-info/>
-		<div>{{examName}}</div>
-		<div>{{examTime}}</div>
-		<div>{{examsocre}}</div>
-		<div>{{examRank}}/{{totalNum}}</div>
+		<div class="infoSec"><div class="title">考试名称：</div><div class="detail">{{examName}}</div></div>
+		<div class="infoSec"><div class="title">考试时间：</div><div class="detail" >{{examTime}}</div></div>
+		<div class="infoSec"><div class="title">分数：</div><div class="detail">{{examsocre}}</div></div>
+		<div class="infoSec"><div class="title">排名：</div><div class="detail">{{examRank}}/{{totalNum}}</div></div>
 	 </div>
 </template>
 
@@ -28,13 +28,27 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+  .basicInfoSec{
+    background: #fff;
+  }
+  .infoSec{
+    display: flex;
+    height: 35px;
+    line-height: 35px;
+    box-sizing:border-box;
+    background: #f7fafc;
+    border-bottom: 2px solid #fff;
+  }
+  .infoSec:last-child{
+    border-bottom: none;
+  }
+  .title{
+    flex:1;
+    text-align: right;
+  }
+  .detail{
+    flex:2;
+    text-align: left;
+  }
 </style>

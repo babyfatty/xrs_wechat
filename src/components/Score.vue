@@ -1,11 +1,11 @@
 <template>
-	<div>
-      题型分数比重饼图
-      <canvas id="ScorePieChart" width="400" ref="ScorePieChart" height="400"></canvas>
-      题型得分五边形图
-      <canvas id="SocreRadarChart" width="400" ref="SocreRadarChart" height="400"></canvas>
-       知识点详情表格
-
+	<div class="scoreReport reportSec">
+      题型分数比重分布
+      <canvas id="ScorePieChart" width="400" ref="ScorePieChart" height="295"></canvas>
+      题型得分布
+      <canvas id="SocreRadarChart" width="400" ref="SocreRadarChart" height="295"></canvas>
+       <div class="tableTitle">知识点详情:</div>
+       <xtable/>
        <t-comment/>
   </div>
 </template>
@@ -13,6 +13,8 @@
 <script>
 
 import tComment from './tComment'
+import xtable from './xtable'
+
 export default {
   name: 'Score',
   mounted(){
@@ -73,18 +75,15 @@ export default {
     });  
   },
   components: {
-    tComment
+    tComment,
+    xtable
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.tableTitle{
+  text-align: left;
+  padding: 0 20px;
 }
 </style>

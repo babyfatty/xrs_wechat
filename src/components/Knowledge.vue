@@ -1,19 +1,20 @@
 <template>
-	<div>
-      知识点分数比重饼图
-      <canvas id="KnowledgeChart" width="400" ref="KnowledgeChart" height="400"></canvas>
-      能力五边形图
-      <canvas id="skillsChart" width="400" ref="skillsChart" height="400"></canvas>
-       知识点详情表格
-
+	<div class="knowledgeReport reportSec">
+      知识点分数比重分布
+      <canvas id="KnowledgeChart" width="400" ref="KnowledgeChart" height="295"></canvas>
+      个人能力分布
+      <canvas id="skillsChart" width="400" ref="skillsChart" height="295"></canvas>
+       <div class="tableTitle">知识点详情:</div>
+       <xtable />
        <t-comment/>
-
   </div>
 
 </template>
 
 <script>
 import tComment from './tComment'
+import xtable from './xtable'
+
 export default {
   name: 'Knowledge',
   mounted(){
@@ -74,18 +75,12 @@ export default {
     });  
   },
   components: {
-    tComment
+    tComment,
+    xtable
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+
 </style>

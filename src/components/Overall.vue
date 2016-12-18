@@ -1,12 +1,11 @@
 <template>
-	<div>
-  <div>overall</div>
+	<div class="overallReport reportSec">
   <div><i class="demo"></i>你所在的分数段</div>
   <canvas id="myChart" width="400" ref="myChart" height="400"></canvas>
   <div class="scoreDes">
-    <div class="averageScore">99分</div>
-    <div class="highestScore">120分</div>
-    <div class="description">本次考试非常简单，没上88的去幼儿园报名</div>
+    <div class="averageScore scoreDesDetail"><div class="scroeTitle">本次考试平均分</div><div class="scoreSub">99分</div></div>
+    <div class="highestScore scoreDesDetail"><div class="scroeTitle">本次考试最高分</div><div class="scoreSub">120分</div></div>
+    <div class="description"><div class="desTitle">试卷说明:</div><div class="desDetail">没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的</div></div>
   </div>
   <t-comment />
   </div>
@@ -66,12 +65,44 @@ export default {
   width: 30px;
   background: rgba(255, 99, 132, 1);
 }
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.scoreDes{
+  background: #f7fafc;
 }
+.scoreDesDetail{
+  display: flex;
+  height: 40px;
+  line-height: 30px;
+  padding: 3px 20px;
+  box-sizing:border-box;
+  border-bottom: 2px solid #fff;
+}
+.description{
+  padding: 3px 20px;
+  border-bottom: 2px solid #fff;
+  background: #fff;
+}
+.scroeTitle{
+  flex:1;
+  text-align: left;
+  border-right: 2px solid #fff;
+}
+.scoreSub{
+  flex:1;
+  text-align: left;
+  box-sizing:border-box;
+  padding: 0 5px;
+}
+.desTitle{
+  border-bottom: 2px solid #fff;
+  text-align: left;
+  height: 30px;
+  line-height: 30px;
+}
+.desDetail{
+  line-height: 30px;
+  text-align: left;
+  background: #f7fafc;
+  
+}
+
 </style>
