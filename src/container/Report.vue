@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Navbar from '../components/Nav'
+import Navbar from '../components/nav'
 import header from '../components/header'
 import basic from '../components/basic'
 import knowledge from '../components/knowledge'
