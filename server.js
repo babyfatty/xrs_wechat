@@ -2,19 +2,19 @@ var koa = require('koa')
 
 var app = koa();
 
+var views = require('co-views');
 
-var views = require('koa-view');
+var render = views(__dirname + '/dist', {
+  map: { html: 'swig' }
+});
 
-app.use(views(__dirname + '/dist'));
 app.use(require('koa-static')(__dirname + '/dist'));
 
-// app.use(function*(){
-	// app.use(function *(){
-	  // this.body = 'Hello World';
-	// });
-// })
+
 app.use(function* (next) {
-  yield this.render('index');
+  console.log(1)
+
+  this.body = render('index');
 })
 
-app.listen(3001);
+app.listen(3002);
