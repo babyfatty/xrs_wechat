@@ -86,4 +86,13 @@ export default {
   .reportInfo{
     flex: 1;
   }
+  .rTime{
+    
+  }
+  .rName{
+
+  }
+  .rScore{
+    
+  }
 </style>

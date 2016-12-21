@@ -1,6 +1,6 @@
 <template>
 	<div class="tComment">
-    <div class="tTitle">名师点评:</div>
+    <div class="tTitle">教师点评:</div>
     <div class="commentWrapper">
           <div class="teacher">
             <div class="teacherAvatar"><img v-bind:src="avatar"></div>

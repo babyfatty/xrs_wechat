@@ -2,12 +2,9 @@
    <table class="rd-table">
     <thead class='rd-table-thead'>
       <tr class='rd-table-th'>
-        <td class='rd-table-td'>数据1</td>
-        <td class='rd-table-td'>数据2</td>
-        <td class='rd-table-td'>数据3</td>
-        <td class='rd-table-td'>数据4</td>
-        <td class='rd-table-td'>数据5</td>
-        <td class='rd-table-td'>数据6</td>
+        <td class='rd-table-td'>题型</td>
+        <td class='rd-table-td'>我的正确率</td>
+        <td class='rd-table-td'>平均正确率</td>
       </tr>
     </thead>
     <tbody>
@@ -15,14 +12,8 @@
         <td class='rd-table-td'>数据1</td>
         <td class='rd-table-td'>数据2</td>
         <td class='rd-table-td'>数据3</td>
-        <td class='rd-table-td'>数据4</td>
-        <td class='rd-table-td'>数据5</td>
-        <td class='rd-table-td'>数据6</td>
       </tr>
       <tr class='rd-table-th'>
-        <td class='rd-table-td'>数据1</td>
-        <td class='rd-table-td'>数据2</td>
-        <td class='rd-table-td'>数据3</td>
         <td class='rd-table-td'>数据4</td>
         <td class='rd-table-td'>数据5</td>
         <td class='rd-table-td'>数据6</td>
