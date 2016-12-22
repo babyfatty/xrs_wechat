@@ -11,12 +11,15 @@
   "dependencies": {
     "chart.js": "^2.4.0",
     "co-views": "^2.1.0",
+    "fs": "0.0.1-security",
     "koa": "^1.2.4",
     "koa-static": "^2.0.0",
     "koa-view": "^1.0.2",
+    "path": "^0.12.7",
     "swig": "^1.4.2",
     "vue": "^2.1.0",
-    "vue-router": "^2.1.1"
+    "vue-router": "^2.1.1",
+    "vue-server-renderer": "^2.1.6"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

@@ -1,8 +1,8 @@
 <template>
   <div class="login">
       <form v-on:submit.prevent="goLogin">
-          <input type="number"  v-model="uid" class="loginField" placeholder="请输入序号" />
-          <button class="loginBtn">登入</button>
+          <input type="number"  v-model="uid" class="loginField" placeholder="输入学员编号" />
+          <button class="loginBtn">查询</button>
       </form>
       <div v-if="invaild">
         输入不合法

@@ -1,5 +1,5 @@
 <template>
-	<div class="usrInfo">你好，{{name}}！</div>
+	<div class="usrInfo">你好，{{name}}，欢迎来到TRS！</div>
 </template>
 
 <script>

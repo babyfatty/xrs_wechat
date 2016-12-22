@@ -1,6 +1,6 @@
 <template>
   <div class="s-header">
-      <div class="ex-header-logo"><span class="ex-header-logo-text">学而思考情报告</span></div>
+      <div class="ex-header-logo"><span class="ex-header-logo-text">学而思TRS</span></div>
       <!-- <router-link :to="{ name: 'list' }">考情列表</router-link> -->
   </div>
 </template>
@@ -46,16 +46,14 @@ export default {
   z-index: 999;
   background: #2db7f5;
   box-sizing: border-box;
-  font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,\\5FAE\8F6F\96C5\9ED1,Arial,sans-serif;
-  -webkit-font-smoothing: antialiased;
 }
 .ex-header-logo {
-    width: 10rem;
+    width: 100%;
 }
 .ex-header-logo-text {
     color: #fff;
     font-size: 1.2rem;
-    font-weight: 100;
+    font-weight: 300;
     line-height: 3rem;
 }
 </style>

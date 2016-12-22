@@ -24,8 +24,7 @@
 
 <script>
 export default {
-  name: 'xtable',
-
+  name: 'xtable'
 }
 </script>
 

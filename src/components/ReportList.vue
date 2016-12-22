@@ -4,17 +4,22 @@
     <div class="listContainer">
       <basic-info /> 
       <div id="reportList">
-        <div class="reportLink">
-          <div class="reportInfo rName">考试名称</div>
-          <div class="reportInfo rTime">考试时间</div>
-          <div class="reportInfo rScore">分数</div>
-         </div>
         <router-link :to="{name:'overall',params:{id:report.id}}" class="link" v-for="report in reports"> 
-         <div class="reportLink">
+        <div class="reportSec">
+          <h3 class="rName">
+            {{report.name}}
+          </h3>
+          <div class="rTime">{{report.time}}</div>
+          <div class="reportBottom">
+            <div class="rScore">得分 <span>{{report.score}}</span></div>
+            <div class="rToDetail">点击查看详细报告</div>
+          </div>
+        </div>
+         <!-- <div class="reportLink">
           <div class="reportInfo rName">{{report.name}}</div>
           <div class="reportInfo rTime">{{report.time}}</div>
           <div class="reportInfo rScore">{{report.score}}</div>
-         </div>
+         </div> -->
         </router-link>
       </ul>
     </div>
@@ -36,7 +41,7 @@ export default {
   data(){
     return{
       reports:[
-        {id:"1",name:"a",time:"2016/12/12",score:"100"},
+        {id:"1",name:"南京学而思四年级考试英语部分",time:"2016/12/12",score:"100"},
         {id:"2",name:"b",time:"2016/12/12",score:"100"},
         {id:"2",name:"b",time:"2016/12/12",score:"100"},
         {id:"2",name:"b",time:"2016/12/12",score:"100"},
@@ -69,10 +74,11 @@ export default {
   .link{
     display: block;
     text-decoration: none;
-    color: #666;
+    padding: 6px;
+
   }
   .link:hover{
-    background: #eee
+    /* background: #eee */
   }
   .link:active{
     /*background: rgba(0,0,0,0.7)*/
@@ -83,16 +89,40 @@ export default {
     line-height: 40px;
     border-top: 1px solid #fff;
   }
+  .reportSec{
+    background: #fff;
+    border-radius: 6px;
+    padding: 10px;
+    color: #000;
+    text-align: left;
+  }
   .reportInfo{
     flex: 1;
   }
   .rTime{
-    
+    color: #999;
+    padding: 5px 0;
   }
   .rName{
-
+    margin: 0
+  }
+  .reportBottom{
+    display: flex;
+    margin-top: 15px;
+    font-weight: bold;
   }
   .rScore{
-    
+    width: 30%;
+    text-align: left;
+  }
+  .rScore span{
+    font-weight: normal;
+    color: #ff2741;
+  }
+
+  .rToDetail{
+    width: 70%;
+    text-align: right;
+    color: #999;
   }
 </style>
