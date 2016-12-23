@@ -4,7 +4,6 @@
   <div  class="xcontainer">
     <div><i class="demo"></i>你所在的分数段</div>
     <div style="height:400px;min-width:300px" id="container"></div> 
-  <canvas id="myChart" width="400" ref="myChart" height="400"></canvas>
   </div>
   <div  class="rcontainer">
     <div class="scoreDes">
@@ -28,14 +27,13 @@ require('highcharts/modules/exporting')(Highcharts);
 export default {
   name: 'overall',
   props:['dataall'],  
-  created(){
-    var overalldata = this.dataall;
-    console.log(this)
-    // console.log(overalldata)
-  },
+
   mounted(){
-    var xData=this.dataall
-    console.log(xData)
+    // console.log(this.dataall)
+    
+    // var xData=this.dataall.overall_info
+    // console.log(xData)
+
     // xData.score_segments.forEach(function(score){
     //   xData.push(score.end_point)
     // })
@@ -45,7 +43,7 @@ export default {
             text: '混合图表'
         },
         xAxis: {
-            categories: xData
+            categories: [1,2,3,4,5,6]
         },
         labels: {
             items: [{
