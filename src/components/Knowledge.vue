@@ -9,7 +9,7 @@
     <div  class="xcontainer"><div class="tableTitle">知识点详情:</div>
        <xtable :xtable="dataall.knowledge_point_info"/>
        </div>
-       <summarize :summarize="dataall.knowledge_point_info.conclusion.join(" ")"/>
+       <summarize :summarize="dataall.knowledge_point_info.conclusion.join('')"/>
   </div>
 
 </template>
