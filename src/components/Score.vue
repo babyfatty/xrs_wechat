@@ -8,15 +8,15 @@
       
       <div class="xcontainer">
          题型得分布
-      <canvas id="SocreRadarChart" width="400" ref="SocreRadarChart" height="295"></canvas>
+         <canvas id="SocreRadarChart" width="400" ref="SocreRadarChart" height="295"></canvas>
       </div>
       
       <div class="xcontainer">
         <div class="tableTitle">知识点详情:</div>
-       <xtable/>
+       <xtable :xtable="dataall.question_type_info"/>
       </div>
        
-       <summarize/>
+       <summarize :summarize="dataall.question_type_info.conclusion.join(' ')"/>
   </div>
 </template>
 
@@ -28,6 +28,7 @@ import summarize from './summarize'
 
 export default {
   name: 'Score',
+  props:['dataall'],
   mounted(){
     var ctx1 = this.$refs.ScorePieChart;
     var ctx2 = this.$refs.SocreRadarChart;

@@ -11,27 +11,21 @@
       </tr>
     </thead>
     <tbody>
-      <tr class='rd-table-th'>
-        <td class='rd-table-td'>数据1</td>
-        <td class='rd-table-td'>数据2</td>
-        <td class='rd-table-td'>数据3</td>
-        <td class='rd-table-td'>数据3</td>
-      </tr>
-      <tr class='rd-table-th'>
-        <td class='rd-table-td'>数据4</td>
-        <td class='rd-table-td'>数据5</td>
-        <td class='rd-table-td'>数据6</td>
-        <td class='rd-table-td'>数据3</td>
+      <tr class='rd-table-th' v-for="data in dataall.question_detail_info">
+        <td class='rd-table-td'>{{data.index}}</td>
+        <td class='rd-table-td'>{{data.value}}</td>
+        <td class='rd-table-td'>{{data.user_score}}</td>
+        <td class='rd-table-td'>{{data.mean_score}}</td>
       </tr>
     </tbody>
    </table>
   </div>
-
 </template>
 
 <script>
 export default {
-  name: 'detailScore'
+  name: 'detailScore',
+  props:['dataall']
 }
 </script>
 

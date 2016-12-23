@@ -1,14 +1,16 @@
 <template>
   <div class="ad">
-    <a href="">
-      <img src="">
-    </a>
+    <!-- <a :href="dataall.ad">
+      <img :src="dataall.ad.img">
+    </a> -->
+    {{dataall.ad.img}}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ad'
+  name: 'ad',
+  props:['dataall']
 }
 </script>
 

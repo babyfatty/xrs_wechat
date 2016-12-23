@@ -18,7 +18,7 @@ Vue.use(Router)
 
 const routes = [
   { path: '/', component: App },
-  { path: '/reportlist', component: ReportList, name:'list' },
+  { path: '/reportlist/:uid', component: ReportList, name:'list' },
   { 
   	path: '/report/:id', 
   	component: Report ,

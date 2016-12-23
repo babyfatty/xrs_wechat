@@ -1,11 +1,11 @@
 <template>
 	 <div class="basicInfoSec">
 	 	<basic-info/>
-		<div class="infoSec"><div class="title">考试名称：</div><div class="detail">{{examName}}</div></div>
-		<div class="infoSec"><div class="title">考试时间：</div><div class="detail" >{{examTime}}</div></div>
-		<div class="infoSec"><div class="title">个人分数：</div><div class="detail">{{examsocre}}/{{totalScore}}</div></div>
-		<div class="infoSec"><div class="title">个人排名：</div><div class="detail">{{examRank}}/{{totalNum}}</div></div>
-    <div class="infoSec"><div class="title">个人奖项：</div><div class="detail">{{prize}}</div></div>
+		<div class="infoSec"><div class="title">考试名称：</div><div class="detail">{{dataall.basic_info.exam_title}}</div></div>
+		<div class="infoSec"><div class="title">考试时间：</div><div class="detail" >{{dataall.basic_info.exam_date}}</div></div>
+		<div class="infoSec"><div class="title">个人分数：</div><div class="detail">{{dataall.basic_info.user_total_score}}/{{dataall.basic_info.exam_total_score}}</div></div>
+		<div class="infoSec"><div class="title">个人排名：</div><div class="detail">{{dataall.basic_info.user_rank}}/{{dataall.basic_info.exam_total_people}}</div></div>
+    <div class="infoSec"><div class="title">个人奖项：</div><div class="detail">{{dataall.basic_info.user_prize}}</div></div>
 	 </div>
 </template>
 
@@ -13,15 +13,8 @@
 import basicInfo from './basicInfo'
 
 export default {
-  data(){
-  	return{
-  		examName : "exam1",
-  		examsocre :"120",
-  		examTime : "2016/12/12",
-  		examRank : "1",
-  		totalNum : "200"
-  	}
-  },
+  props:['dataall'],
+  
   name: 'Basic',
   components: {
   	basicInfo

@@ -3,8 +3,8 @@
     <div class="tTitle">教师点评</div>
     <div class="commentWrapper">
           <div class="teacher">
-            <div class="teacherAvatar"><img v-bind:src="avatar"></div>
-            <div class="teacherName">{{name}}</div>
+            <div class="teacherAvatar"><img v-bind:src="dataall.teacher_review.teacher_head_icon"></div>
+            <div class="teacherName">{{dataall.teacher_review.teacher_name}}</div>
           </div>
           <div class="comment">
           <i class="quot">
@@ -13,7 +13,11 @@
           <i class="quot2">
            <img src="../assets/quot2.png">
           </i>
-          <div>没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么</div></div>
+          <div>
+            <div>{{dataall.teacher_review.review_knowledge}}</div>
+            <div>{{dataall.teacher_review.review_overall}}</div>
+            <div>{{dataall.teacher_review.review_question_type}}</div>
+          </div></div>
     </div>
   </div>
 </template>
@@ -21,11 +25,10 @@
 <script>
 export default {
   name: 'tComment',
+  props:['dataall'],
   data(){
     return{
-      name:'bbf',
-      avatar:'http://www.chartjs.org/img/chartjs-logo.svg',
-      comment:"good!goodgoodgoodgoodgoodgoodgoodgoodgoodgood!goodgoodgoodgoodgoodgoodgoodgoodgoodgood!goodgoodgoodgoodgoodgoodgoodgoodgoodgood!goodgoodgoodgoodgoodgoodgoodgoodgoodgood!goodgoodgoodgoodgoodgoodgoodgoodgoodgood!goodgoodgoodgoodgoodgoodgoodgoodgood"
+       
     }
   },
   mounted(){

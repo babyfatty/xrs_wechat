@@ -24,7 +24,8 @@
 
 <script>
 export default {
-  name: 'xtable'
+  name: 'xtable',
+  props:['dataall'],
 }
 </script>
 

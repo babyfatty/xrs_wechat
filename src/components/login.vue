@@ -34,7 +34,7 @@ export default {
         this.$http.get('http://trsapi.xesfun.com/front/user/searchByStudentID',{params:{id:'461209'}}).then((response) => {
           // success callback
           console.log(response)
-          this.$router.push({name:"list"},{});
+          this.$router.push({name:"list","params":{uid:'461209'}});
         }, (response) => {
           // error callback
         });

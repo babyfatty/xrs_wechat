@@ -4,16 +4,16 @@
   <div  class="xcontainer">
     <div><i class="demo"></i>你所在的分数段</div>
     <div style="height:400px;min-width:300px" id="container"></div> 
-  <!-- <canvas id="myChart" width="400" ref="myChart" height="400"></canvas> -->
+  <canvas id="myChart" width="400" ref="myChart" height="400"></canvas>
   </div>
   <div  class="rcontainer">
     <div class="scoreDes">
-    <div class="averageScore scoreDesDetail"><div class="scroeTitle">本次考试平均分</div><div class="scoreSub">99分</div></div>
-    <div class="highestScore scoreDesDetail"><div class="scroeTitle">本次考试最高分</div><div class="scoreSub">120分</div></div>
-    <div class="description"><div class="desTitle">试卷说明:</div><div class="desDetail">没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的没有什么好说的</div></div>
+    <div class="averageScore scoreDesDetail"><div class="scroeTitle">本次考试平均分</div><div class="scoreSub">{{dataall.overall_info.mean_score}}</div></div>
+    <div class="highestScore scoreDesDetail"><div class="scroeTitle">本次考试最高分</div><div class="scoreSub">{{dataall.overall_info.highest_score}}</div></div>
+    <div class="description"><div class="desTitle">试卷说明:</div><div class="desDetail">{{dataall.overall_info.statement}}</div></div>
   </div>
   </div>
-  <summarize />
+  <summarize  :summarize='dataall.overall_info.conclusion'/>
   </div>
 </template>
 
@@ -26,15 +26,26 @@ var Highcharts = require('highcharts');
 require('highcharts/modules/exporting')(Highcharts);
 
 export default {
-  name: 'Overall',
+  name: 'overall',
+  props:['dataall'],  
+  created(){
+    var overalldata = this.dataall;
+    console.log(this)
+    // console.log(overalldata)
+  },
   mounted(){
+    var xData=this.dataall
+    console.log(xData)
+    // xData.score_segments.forEach(function(score){
+    //   xData.push(score.end_point)
+    // })
     var ctx = this.$refs.myChart;
     Highcharts.chart('container',{
         title: {
             text: '混合图表'
         },
         xAxis: {
-            categories: ['苹果', ' 橙', '梨', '香蕉', '李']
+            categories: xData
         },
         labels: {
             items: [{
@@ -75,55 +86,6 @@ export default {
         
     });
 
-    // var barChart = new Chart(ctx, {
-    //     type: 'bar',
-    //     data: {
-    //         labels: ["0-10", "10-40", "40-60", "60-80", "80-90", "90-100"],
-    //         datasets: [{
-    //           label: '#区域代表人数分布',
-    //             data: [12, 19, 3, 5, 2, 3],
-    //             backgroundColor: [
-    //                 'rgba(54, 162, 235, 0.2)',
-    //                 'rgba(54, 162, 235, 0.2)',
-    //                 'rgba(54, 162, 235, 0.2)',
-    //                 'rgba(255, 99, 132, 1)',
-    //                 'rgba(54, 162, 235, 0.2)',
-    //                 'rgba(54, 162, 235, 0.2)'
-    //             ]
-    //         }]
-    //     },
-    //     options: {
-    //       legend: {display:false,labels:{fontColor:"rgba(255, 99, 132, 1)", fontSize: 18}},
-    //       scales: {
-    //             yAxes: [{
-    //                 ticks: {
-    //                     beginAtZero:true
-    //                 }
-    //             }]
-    //       },
-    //       tooltips: {
-    //         enabled: false
-    //       },
-    //       animation:{
-    //         duration: 1,
-    //     onComplete: function () {
-    //         var chartInstance = this.chart,
-    //             ctx = chartInstance.ctx;
-    //         ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
-    //         ctx.textAlign = 'center';
-    //         ctx.textBaseline = 'bottom';
-
-    //         this.data.datasets.forEach(function (dataset, i) {
-    //             var meta = chartInstance.controller.getDatasetMeta(i);
-    //             meta.data.forEach(function (bar, index) {
-    //                 var data = dataset.data[index];                            
-    //                 ctx.fillText(data, bar._model.x, bar._model.y - 5);
-    //             });
-    //         });
-    //     }
-    //       }
-    //     }
-    // });
   },
   components: {
     summarize

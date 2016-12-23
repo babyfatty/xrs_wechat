@@ -5,23 +5,21 @@
       <basic-info /> 
       <div id="reportList">
         <h3 class="reportTitle">报告列表</h3>
-        <router-link :to="{name:'overall',params:{id:report.id}}" class="link" v-for="report in reports"> 
+        <router-link :to="{name:'overall',params:{id:report.prid}}" class="link" v-for="report in reports"> 
         <div class="reportSec">
           <h3 class="rName">
-            {{report.name}}
+            {{report.exam_title}}
           </h3>
-          <div class="rTime">{{report.time}}</div>
+          <div class="rTime">{{report.exam_date}}</div>
           <div class="reportBottom">
-            <div class="rScore">得分 <span>{{report.score}}</span></div>
+            <div class="rScore">得分 <span>{{report.total_score}}</span></div>
             <div class="rToDetail">点击查看详细报告</div>
           </div>
         </div>
         </router-link>
       </ul>
     </div>
-    <!-- <div v-on:click="clk">go book</div> -->
   </div>
-
 </template>
 
 <script>
@@ -36,17 +34,17 @@ export default {
   },
   data(){
     return{
-      reports:[
-        {id:"1",name:"南京学而思四年级考试英语部分",time:"2016/12/12",score:"100"},
-        {id:"2",name:"b",time:"2016/12/12",score:"100"},
-        {id:"2",name:"b",time:"2016/12/12",score:"100"},
-        {id:"2",name:"b",time:"2016/12/12",score:"100"},
-        {id:"2",name:"b",time:"2016/12/12",score:"100"},
-        {id:"2",name:"b",time:"2016/12/12",score:"100"},
-        {id:"2",name:"b",time:"2016/12/12",score:"100"},
-        {id:"3",name:"c",time:"2016/12/12",score:"100"}
-      ]
+      reports: []
     }
+  },
+  created(){
+    this.$http.get('http://trsapi.xesfun.com/front/user/searchByStudentID',{params:{id:this.$route.params.uid}}).then((response) => {
+          // success callback
+          console.log(response)
+          this.reports = response.body.content
+        }, (response) => {
+          // error callback
+        });
   },
   methods: {
     clk(){ this.$router.push({name:"basic", params:{"id":1}}); }

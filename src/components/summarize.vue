@@ -2,7 +2,7 @@
 	<div class="summarize">
     <div class="desTitle">总结：</div>
     <div class="commentWrapper">
-          没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么没有什么
+         {{summarize}}
     </div>
   </div>
 </template>
@@ -12,9 +12,10 @@ export default {
   name: 'summarize',
   data(){
     return{
-      comment:"good!goodgoodgoodgoodgoodgoodgoodgoodgoodgood!goodgoodgoodgoodgoodgoodgoodgoodgoodgood!goodgoodgoodgoodgoodgoodgoodgoodgoodgood!goodgoodgoodgoodgoodgoodgoodgoodgoodgood!goodgoodgoodgoodgoodgoodgoodgoodgoodgood!goodgoodgoodgoodgoodgoodgoodgoodgood"
+       
     }
   },
+  props:['summarize'],
   mounted(){
     
   },

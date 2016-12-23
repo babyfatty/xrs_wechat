@@ -2,15 +2,15 @@
 	<div id="appReport" ref="report">
   <s-header></s-header>
   <div class="reportContainer">
-    <basic/>
-    <overall/> 
-    <knowledge/> 
-    <score/> 
-    <detailScore/>
-    <tComment/>
-    <ad/>
+    <basic :dataall="dataAll"/>
+    <overall :dataall="dataAll"/> 
+    <knowledge :dataall="dataAll"/> 
+    <score :dataall="dataAll"/> 
+    <detailScore :dataall="dataAll"/>
+    <tComment :dataall="dataAll"/>
+    <ad :dataall="dataAll"/>
     <!-- <nav-bar></nav-bar> -->
-    <!-- <router-view></router-view>  -->
+    <!-- <router-view></router-view> -->
   </div>
 	</div>
 </template>
@@ -39,7 +39,20 @@ export default {
     detailScore,
     ad
   },
-  
+  data(){
+    return{
+      dataAll : {}
+    }
+  },
+  created(){
+    this.$http.get('http://trsapi.xesfun.com/front/report/data',{params:{id:this.$route.params.id}}).then((response) => {
+          // success callback
+          console.log(response)
+          this.dataAll = response.body.content
+        }, (response) => {
+          // error callback
+        });
+  }
 }
 
 </script>

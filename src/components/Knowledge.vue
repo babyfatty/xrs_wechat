@@ -7,9 +7,9 @@
     <div  class="xcontainer">个人能力分布
       <canvas id="skillsChart" width="400" ref="skillsChart" height="295"></canvas></div>
     <div  class="xcontainer"><div class="tableTitle">知识点详情:</div>
-       <xtable /></div>
-       
-       <summarize/>
+       <xtable :xtable="dataall.knowledge_point_info"/>
+       </div>
+       <summarize :summarize="dataall.knowledge_point_info.conclusion.join(" ")"/>
   </div>
 
 </template>
@@ -20,6 +20,7 @@ import xtable from './xtable'
 
 export default {
   name: 'Knowledge',
+  props:['dataall'],
   mounted(){
     var ctx1 = this.$refs.KnowledgeChart;
     var ctx2 = this.$refs.skillsChart;
