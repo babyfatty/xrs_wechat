@@ -16,14 +16,15 @@
        <xtable/>
       </div>
        
-       <t-comment/>
+       <summarize/>
   </div>
 </template>
 
 <script>
 
-import tComment from './tComment'
 import xtable from './xtable'
+import summarize from './summarize'
+
 
 export default {
   name: 'Score',
@@ -85,7 +86,7 @@ export default {
     });  
   },
   components: {
-    tComment,
+    summarize,
     xtable
   }
 }
@@ -95,15 +96,19 @@ export default {
 .tableTitle{
   text-align: left;
   padding: 0 20px;
+  color: #000;
+  font-weight: bold;
 }
 .rtitle{
     background: #c9e5f5;
-    color: #666;
+    color: #000;
+    font-weight: bold;
     height: 35px;
     line-height: 35px;
     margin: 10px 0;
   }
   .xcontainer{
     margin: 10px 0;
+    color: #000;
   }
 </style>

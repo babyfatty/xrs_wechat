@@ -1,6 +1,6 @@
 <template>
 	<div class="tComment">
-    <div class="tTitle">教师点评:</div>
+    <div class="tTitle">教师点评</div>
     <div class="commentWrapper">
           <div class="teacher">
             <div class="teacherAvatar"><img v-bind:src="avatar"></div>
@@ -43,11 +43,14 @@ export default {
 }
 
 .tTitle{
-  text-align: left;
-  border-bottom: 2px solid #fff;
-  padding: 0 20px;
-  background: #fff;
-}
+    background: #c9e5f5;
+    color: #000;
+    height: 35px;
+    line-height: 35px;
+    margin: 10px 0;
+    font-weight: bold;
+    text-align: center;
+  }
   .commentWrapper{
     display: flex;
     justify-content:center;

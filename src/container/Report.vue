@@ -4,8 +4,11 @@
   <div class="reportContainer">
     <basic/>
     <overall/> 
-    <score/> 
     <knowledge/> 
+    <score/> 
+    <detailScore/>
+    <tComment/>
+    <ad/>
     <!-- <nav-bar></nav-bar> -->
     <!-- <router-view></router-view>  -->
   </div>
@@ -19,6 +22,10 @@ import basic from '../components/basic'
 import knowledge from '../components/knowledge'
 import score from '../components/score'
 import overall from '../components/overall'
+import tComment from '../components/tComment'
+import detailScore from '../components/detailScore'
+import ad from '../components/ad'
+
 export default {
   name: 'Report',
   components: {
@@ -27,7 +34,10 @@ export default {
     basic,
     score,
     knowledge,
-    overall
+    overall,
+    tComment,
+    detailScore,
+    ad
   },
   
 }

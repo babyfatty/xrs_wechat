@@ -9,13 +9,13 @@
     <div  class="xcontainer"><div class="tableTitle">知识点详情:</div>
        <xtable /></div>
        
-       <t-comment/>
+       <summarize/>
   </div>
 
 </template>
 
 <script>
-import tComment from './tComment'
+import summarize from './summarize'
 import xtable from './xtable'
 
 export default {
@@ -78,7 +78,7 @@ export default {
     });  
   },
   components: {
-    tComment,
+    summarize,
     xtable
   }
 }
@@ -87,12 +87,15 @@ export default {
 <style scoped>
   .rtitle{
     background: #c9e5f5;
-    color: #666;
+    color: #000;
+    font-weight: bold;
     height: 35px;
     line-height: 35px;
     margin: 10px 0;
+    font-size: 17px;
   }
   .xcontainer{
     margin: 10px 0;
+    color: #000;
   }
 </style>

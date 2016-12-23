@@ -3,8 +3,9 @@
 	 	<basic-info/>
 		<div class="infoSec"><div class="title">考试名称：</div><div class="detail">{{examName}}</div></div>
 		<div class="infoSec"><div class="title">考试时间：</div><div class="detail" >{{examTime}}</div></div>
-		<div class="infoSec"><div class="title">分数：</div><div class="detail">{{examsocre}}</div></div>
-		<div class="infoSec"><div class="title">排名：</div><div class="detail">{{examRank}}/{{totalNum}}</div></div>
+		<div class="infoSec"><div class="title">个人分数：</div><div class="detail">{{examsocre}}/{{totalScore}}</div></div>
+		<div class="infoSec"><div class="title">个人排名：</div><div class="detail">{{examRank}}/{{totalNum}}</div></div>
+    <div class="infoSec"><div class="title">个人奖项：</div><div class="detail">{{prize}}</div></div>
 	 </div>
 </template>
 

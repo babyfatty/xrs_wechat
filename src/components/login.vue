@@ -31,7 +31,13 @@ export default {
           this.invaild = true
           return
         } 
-        this.$router.push({name:"list"});
+        this.$http.get('http://trsapi.xesfun.com/front/user/searchByStudentID',{params:{id:'461209'}}).then((response) => {
+          // success callback
+          console.log(response)
+          this.$router.push({name:"list"},{});
+        }, (response) => {
+          // error callback
+        });
     }
   }
 }

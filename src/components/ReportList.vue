@@ -4,6 +4,7 @@
     <div class="listContainer">
       <basic-info /> 
       <div id="reportList">
+        <h3 class="reportTitle">报告列表</h3>
         <router-link :to="{name:'overall',params:{id:report.id}}" class="link" v-for="report in reports"> 
         <div class="reportSec">
           <h3 class="rName">
@@ -15,11 +16,6 @@
             <div class="rToDetail">点击查看详细报告</div>
           </div>
         </div>
-         <!-- <div class="reportLink">
-          <div class="reportInfo rName">{{report.name}}</div>
-          <div class="reportInfo rTime">{{report.time}}</div>
-          <div class="reportInfo rScore">{{report.score}}</div>
-         </div> -->
         </router-link>
       </ul>
     </div>
@@ -62,13 +58,13 @@ export default {
   .listContainer{
     margin: 10px 10px 0;
     color: #666;
-    border: 1px solid #ddd;
+    /*border: 1px solid #ddd;*/
     border-radius: 4px;
     box-shadow: 0 1px 0 #f2f4f5;
-    background: #fff;
+    /*background: #fff;*/
   }
   #reportList{
-    background: #f7f7f7;
+    /*background: #f7f7f7;*/
 
   }
   .link{
@@ -77,8 +73,10 @@ export default {
     padding: 6px;
 
   }
-  .link:hover{
+  .link:visited{
     /* background: #eee */
+    background: ;
+    color:#eee !important;
   }
   .link:active{
     /*background: rgba(0,0,0,0.7)*/
@@ -95,6 +93,7 @@ export default {
     padding: 10px;
     color: #000;
     text-align: left;
+    box-shadow:0px 2px 5px #999;
   }
   .reportInfo{
     flex: 1;
@@ -124,5 +123,9 @@ export default {
     width: 70%;
     text-align: right;
     color: #999;
+  }
+  .reportTitle{
+    margin: 0;
+    padding-top: 6px;
   }
 </style>
