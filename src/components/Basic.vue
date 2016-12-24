@@ -1,8 +1,8 @@
 <template>
 	 <div class="basicInfoSec">
-	 	<basic-info/>
+	 	<basic-info :uname='dataall.basic_info.user_name'/>
 		<div class="infoSec"><div class="title">考试名称：</div><div class="detail">{{dataall.basic_info.exam_title}}</div></div>
-		<div class="infoSec"><div class="title">考试时间：</div><div class="detail" >{{dataall.basic_info.exam_date}}</div></div>
+		<div class="infoSec"><div class="title">考试时间：</div><div class="detail" >{{dataall.basic_info.exam_date.split(' ')[0]}}</div></div>
 		<div class="infoSec"><div class="title">个人分数：</div><div class="detail">{{dataall.basic_info.user_total_score}}/{{dataall.basic_info.exam_total_score}}</div></div>
 		<div class="infoSec"><div class="title">个人排名：</div><div class="detail">{{dataall.basic_info.user_rank}}/{{dataall.basic_info.exam_total_people}}</div></div>
     <div class="infoSec"><div class="title">个人奖项：</div><div class="detail">{{dataall.basic_info.user_prize}}</div></div>

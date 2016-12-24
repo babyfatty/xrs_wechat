@@ -2,15 +2,15 @@
 	<div>
     <s-header></s-header>
     <div class="listContainer">
-      <basic-info /> 
+      <basic-info :uname='name'/> 
       <div id="reportList">
         <h3 class="reportTitle">报告列表</h3>
-        <router-link :to="{name:'overall',params:{id:report.prid}}" class="link" v-for="report in reports"> 
+        <router-link :to="{name:'overall',params:{id:report.prid}}" class="link"  v-bind:class="{ active: report.viewed }"  v-for="report in reports"> 
         <div class="reportSec">
           <h3 class="rName">
             {{report.exam_title}}
           </h3>
-          <div class="rTime">{{report.exam_date}}</div>
+          <div class="rTime">{{report.exam_date.split(' ')[0]}}</div>
           <div class="reportBottom">
             <div class="rScore">得分 <span>{{report.total_score}}</span></div>
             <div class="rToDetail">点击查看详细报告</div>
@@ -34,7 +34,8 @@ export default {
   },
   data(){
     return{
-      reports: []
+      reports: [],
+      name:''
     }
   },
   created(){
@@ -46,6 +47,11 @@ export default {
           // error callback
         });
   },
+  watch:{
+    'reports':function(res){
+      this.name = res[0].user_name
+    }
+  },
   methods: {
     clk(){ this.$router.push({name:"basic", params:{"id":1}}); }
   }
@@ -53,6 +59,7 @@ export default {
 </script>
 
 <style scoped>
+
   .listContainer{
     margin: 10px 10px 0;
     color: #666;
@@ -71,13 +78,17 @@ export default {
     padding: 6px;
 
   }
-  .link:visited{
-    /* background: #eee */
-    background: ;
-    color:#eee !important;
+  .link.active .reportSec{
+    background: rgba(255,255,255,0.6);
   }
-  .link:active{
-    /*background: rgba(0,0,0,0.7)*/
+  .link.active .rName{
+     color: #999;
+  }
+    .link.active .rScore{
+     color: #999;
+  }
+    .link.active .rScore span{
+     color: #999;
   }
   .reportLink{
     display: flex;

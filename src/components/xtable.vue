@@ -2,21 +2,16 @@
    <table class="rd-table">
     <thead class='rd-table-thead'>
       <tr class='rd-table-th'>
-        <td class='rd-table-td'>题型</td>
+        <td class='rd-table-td'>{{title}}</td>
         <td class='rd-table-td'>我的正确率</td>
         <td class='rd-table-td'>平均正确率</td>
       </tr>
     </thead>
     <tbody>
-      <tr class='rd-table-th'>
-        <td class='rd-table-td'>数据1</td>
-        <td class='rd-table-td'>数据2</td>
-        <td class='rd-table-td'>数据3</td>
-      </tr>
-      <tr class='rd-table-th'>
-        <td class='rd-table-td'>数据4</td>
-        <td class='rd-table-td'>数据5</td>
-        <td class='rd-table-td'>数据6</td>
+      <tr class='rd-table-th' v-for="item in xData">
+        <td class='rd-table-td'>{{item.tyid}}</td>
+        <td class='rd-table-td'>{{item.score_rate}}</td>
+        <td class='rd-table-td'>{{item.mean_sr}}</td>
       </tr>
     </tbody>
    </table>
@@ -25,7 +20,55 @@
 <script>
 export default {
   name: 'xtable',
-  props:['dataall'],
+  props:['xtable'],
+  data(){
+    return{
+      xData:{},
+      title:{},
+      dTable:this.xtable
+    }
+  },
+  watch:{
+    'xtable':function(val){
+      let p = val.personal
+      let o = val.overall
+      let temArr = []
+      p.forEach((ele,index)=>{
+          if(!!ele.tyid){
+            temArr.push({
+              tyid:ele.tyid,
+              score_rate:ele.score_rate,
+              mean_sr:o[index].mean_sr
+            })
+            this.title="题型"
+          }else{
+            temArr.push({
+              tyid:ele.kpid,
+              score_rate:ele.score_rate,
+              mean_sr:o[index].mean_sr
+            })
+            this.title="知识点"
+          }
+      })
+      this.xData = temArr
+    }
+  },
+  computed:{
+    data:function(){
+      let p = this.xtable.personal
+      let o = this.xtable.overall
+      let temArr = []
+      p.forEach(function(ele,index){
+          temArr.push({
+            tyid:ele.tyid,
+            score_rate:ele.score_rate,
+            mean_sr:o[index].mean_sr
+          })
+      })
+      console.log(temArr)
+      return temArr
+    }
+  }
 }
 </script>
 

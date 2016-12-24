@@ -2,81 +2,102 @@
 	<div class="knowledgeReport reportSec">
       <div class="rtitle">个人知识点掌握情况</div>
 
-    <div class="xcontainer">知识点分数比重分布
-      <canvas id="KnowledgeChart" width="400" ref="KnowledgeChart" height="295"></canvas></div>
+    <div class="xcontainer">
+      <div id="kpcontainer" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+    </div>
     <div  class="xcontainer">个人能力分布
-      <canvas id="skillsChart" width="400" ref="skillsChart" height="295"></canvas></div>
-    <div  class="xcontainer"><div class="tableTitle">知识点详情:</div>
-       <xtable :xtable="dataall.knowledge_point_info"/>
-       </div>
-       <summarize :summarize="dataall.knowledge_point_info.conclusion.join('')"/>
+         <canvas id="kRadarChart" width="300" ref="kRadarChart" height="300"></canvas>
+    </div>
+    <div  class="xcontainer">
+      <div class="tableTitle">知识点详情:</div>
+      <xtable :xtable="dataall.knowledge_point_info"/>
+    </div>
+    <summarize :summarize="dataall.knowledge_point_info.conclusion"/>
   </div>
-
 </template>
-
 <script>
 import summarize from './summarize'
 import xtable from './xtable'
+import Highcharts from 'highcharts'
+// 在 Highcharts 加载之后加载功能模块
+require('highcharts/highcharts-more');
+
 
 export default {
   name: 'Knowledge',
   props:['dataall'],
-  mounted(){
-    var ctx1 = this.$refs.KnowledgeChart;
-    var ctx2 = this.$refs.skillsChart;
+  watch:{
+    'dataall':function(val){
+      let kpData = []
+      let temArr = []
+      let radarLable = []
+      let radarValuemy = []
+      let radarValueall = []
+      let ctx = this.$refs.kRadarChart;
 
-    var KnowledgeChart = new Chart(ctx1, {
-        type: 'pie',
-        data: {
-            labels: [
-                "Red",
-                "Blue",
-                "Yellow"
-            ],
+      val.knowledge_point_info.overall.forEach((ele,index)=>{
+        temArr = []
+        temArr.push(ele.kpid)
+        temArr.push(ele.total_value)
+        kpData.push(temArr)
+        radarLable.push(ele.kpid)
+        radarValueall.push(ele.mean_sr)
+        radarValuemy.push(val.knowledge_point_info.personal[index].score_rate)
+      })
+      console.log(kpData)
+
+      Highcharts.chart('kpcontainer',{
+          chart: {
+              plotBackgroundColor: null,
+              plotBorderWidth: null,
+              plotShadow: false
+          },
+          title: {
+              text: '知识点分数比重分布'
+          },
+          tooltip: {
+              pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+          },
+          series: [{
+              type: 'pie',
+              name: '知识点分数比重分布',
+              data: kpData
+          }]
+      }) 
+      var myRadarChart = new Chart(ctx, {
+          type: 'radar',
+          data: {
+            labels: radarLable,
             datasets: [
                 {
-                    data: [300, 50, 100],
-                    backgroundColor: [
-                        "#FF6384",
-                        "#36A2EB",
-                        "#FFCE56"
-                    ],
-                    hoverBackgroundColor: [
-                        "#FF6384",
-                        "#36A2EB",
-                        "#FFCE56"
-                    ]
-                }]
-        }
-    });
-    var myRadarChart = new Chart(ctx2, {
-        type: 'radar',
-        data: {
-          labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
-          datasets: [
-              {
-                  label: "My First dataset",
-                  backgroundColor: "rgba(179,181,198,0.2)",
-                  borderColor: "rgba(179,181,198,1)",
-                  pointBackgroundColor: "rgba(179,181,198,1)",
-                  pointBorderColor: "#fff",
-                  pointHoverBackgroundColor: "#fff",
-                  pointHoverBorderColor: "rgba(179,181,198,1)",
-                  data: [65, 59, 90, 81, 56, 55, 40]
-              },
-              {
-                  label: "My Second dataset",
-                  backgroundColor: "rgba(255,99,132,0.2)",
-                  borderColor: "rgba(255,99,132,1)",
-                  pointBackgroundColor: "rgba(255,99,132,1)",
-                  pointBorderColor: "#fff",
-                  pointHoverBackgroundColor: "#fff",
-                  pointHoverBorderColor: "rgba(255,99,132,1)",
-                  data: [28, 48, 40, 19, 96, 27, 100]
-              }
-          ]
+                    label: "平均正确率",
+                    backgroundColor: "rgba(179,181,198,0.2)",
+                    borderColor: "rgba(179,181,198,1)",
+                    pointBackgroundColor: "rgba(179,181,198,1)",
+                    pointBorderColor: "#fff",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(179,181,198,1)",
+                    data: radarValueall
+                },
+                {
+                    label: "个人正确率",
+                    backgroundColor: "rgba(255,99,132,0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    pointBackgroundColor: "rgba(255,99,132,1)",
+                    pointBorderColor: "#fff",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(255,99,132,1)",
+                    data: radarValuemy
+                }
+            ]
+          }
+      }) 
     }
-    });  
+  },
+  mounted(){
+    var ctx1 = this.$refs.KnowledgeChart;
+    var ctx2 = this.$refs.skillsChart; 
+   
   },
   components: {
     summarize,

@@ -1,13 +1,21 @@
 <template>
-  <div class="login">
+<div>
+  <div class="loginpage">
+  </div>
+
+        <div class="login">
       <form v-on:submit.prevent="goLogin">
-          <input type="number"  v-model="uid" class="loginField" placeholder="输入学员编号" />
+            <div v-if="invaild" class="errmsg">
+              *请输入数字
+            </div>
+            <div v-if="acvaild" class="errmsg">
+              *账户不存在
+            </div>
+          <input type="number"  v-model="uid" class="loginField" placeholder="输入学员编号" v-on:click="acvaild = false" v-bind:class="{ err: acvaild }"/>
           <button class="loginBtn">查询</button>
       </form>
-      <div v-if="invaild">
-        输入不合法
-      </div>
-  </div>
+</div>
+</div>
 </template>
 
 <script>
@@ -20,7 +28,8 @@ export default {
   data () {
     return {
       uid:"",
-      invaild:false
+      invaild:false,
+      acvaild:false
     }
   },
   components : {
@@ -31,12 +40,14 @@ export default {
           this.invaild = true
           return
         } 
-        this.$http.get('http://trsapi.xesfun.com/front/user/searchByStudentID',{params:{id:'461209'}}).then((response) => {
-          // success callback
-          console.log(response)
-          this.$router.push({name:"list","params":{uid:'461209'}});
+        this.$http.get('http://trsapi.xesfun.com/front/user/searchByStudentID',{params:{id:this.uid}}).then((response) => {
+          if(response.body.result_code===0){
+            this.$router.push({name:"list","params":{uid:this.uid}});
+          }else{
+            this.acvaild = true
+          }
         }, (response) => {
-          // error callback
+          
         });
     }
   }
@@ -45,22 +56,47 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
 
-ul {
-  list-style-type: none;
+.loginpage{
+    background: #f7fafc;
+  margin: 0;
   padding: 0;
+  background-image: url('../assets/bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+   position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+z-index: -1;
 }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
 
 a {
   color: #42b983;
+}
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+.reportContainer{
+      margin: 10px 10px 0;
+    color: #666;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 #f2f4f5;
+    background: #fff;
+}
+.err {
+  border: 1px solid #FF6384 !important;
+}
+.errmsg{
+  font-size: 14px;
+    color: #FF6384;
 }
 .loginField{
     font-size: .9rem;

@@ -1,9 +1,12 @@
 <template>
-  <div id="xsrMain">
-      <h4>南京学而思考情查询系统</h4>
-      <img src="./assets/logo.png">
+<div>
+    <div id="xsrMain">
+      <h4>学而思 Test Report System</h4>
+      <img class="img" src="./assets/logo.png">
     <login></login>
   </div>
+</div>
+
 </template>
 
 <script>
@@ -21,19 +24,17 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
-body{
-  background: #f7fafc;
-  margin: 0;
-  padding: 0;
 
-}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+.img{
+  max-width: 60%;
 }
 </style>

@@ -1,8 +1,10 @@
 <template>
 	<div class="summarize">
     <div class="desTitle">总结：</div>
-    <div class="commentWrapper">
-         {{summarize}}
+    <div class="summarizeWrapper">
+         <div v-for="item in items">
+            {{item}}
+         </div>
     </div>
   </div>
 </template>
@@ -10,21 +12,21 @@
 <script>
 export default {
   name: 'summarize',
-  data(){
-    return{
-       
-    }
-  },
+  
   props:['summarize'],
-  mounted(){
-    
-  },
-  components: {
+  computed:{
+    items:function(){
+      if(Array.isArray(this.summarize)){
+        return this.summarize
+      }else{
+        return [this.summarize]
+      }
+    }
   }
 }
 </script>
 
-<style>
+<style scoped>
 .summarize{
     background: #fff;
     padding: 3px 20px;
@@ -39,12 +41,13 @@ export default {
   color: #000;
   font-weight: bold;
 }
-  .commentWrapper{
-    display: flex;
+  .summarizeWrapper{
+/*     display: flex;
     justify-content:center;
     align-items: center;
-  padding-bottom: 20px;
+  padding-bottom: 20px; */
   background: #f7fafc;
+  text-align: left;
   }
   .teacher{
     flex:1;

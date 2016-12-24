@@ -3,12 +3,14 @@
   <div class="rtitle">年级总体情况</div>  
   <div  class="xcontainer">
     <div><i class="demo"></i>你所在的分数段</div>
-    <div style="height:400px;min-width:300px" id="container"></div> 
+    <div style="height:400px;min-width:200px" id="container"></div> 
   </div>
   <div  class="rcontainer">
     <div class="scoreDes">
     <div class="averageScore scoreDesDetail"><div class="scroeTitle">本次考试平均分</div><div class="scoreSub">{{dataall.overall_info.mean_score}}</div></div>
     <div class="highestScore scoreDesDetail"><div class="scroeTitle">本次考试最高分</div><div class="scoreSub">{{dataall.overall_info.highest_score}}</div></div>
+    <rankchart :dataall="dataall"/>
+    <trankchart :dataall="dataall"/>
     <div class="description"><div class="desTitle">试卷说明:</div><div class="desDetail">{{dataall.overall_info.statement}}</div></div>
   </div>
   </div>
@@ -17,76 +19,115 @@
 </template>
 
 <script>
-import Chart from 'chart.js'
 import summarize from './summarize'
+import rankchart from './rankchart'
+import trankchart from './trankchart'
+
 var Highcharts = require('highcharts');
 
 // 在 Highcharts 加载之后加载功能模块
-require('highcharts/modules/exporting')(Highcharts);
 
 export default {
   name: 'overall',
   props:['dataall'],  
-
-  mounted(){
-    // console.log(this.dataall)
-    
-    // var xData=this.dataall.overall_info
-    // console.log(xData)
-
-    // xData.score_segments.forEach(function(score){
-    //   xData.push(score.end_point)
-    // })
-    var ctx = this.$refs.myChart;
-    Highcharts.chart('container',{
-        title: {
-            text: '混合图表'
-        },
-        xAxis: {
-            categories: [1,2,3,4,5,6]
-        },
-        labels: {
-            items: [{
-                html: '水果销量',
-                style: {
-                    left: '100px',
-                    top: '18px',
-                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
-                }
-            }]
-        },
-        series: [{
-            type: 'column',
-            name: 'Jane',
-            data: [3, 2, 1, 3, 4],
-            dataLabels: {
-              enabled: true,
-              color: '#FFFFFF',
-              align: 'right',
-              format: '{point.y:.1f}', // one decimal
-              y: 50, // 10 pixels down from the top
-              x:0,
-              style: {
-                  fontSize: '13px',
-                  fontFamily: 'Verdana, sans-serif'
+  watch: {
+    'dataall':function(){
+      var xData=this.dataall.overall_info
+      var xArr = []
+      var yArr = []
+      var myscore = this.dataall.basic_info.user_total_score
+      xData.score_segments.forEach(function(score){
+        xArr.push(score.start_point+'-'+score.end_point)
+        if((myscore*1<=score.end_point*1)&&(myscore*1>score.start_point*1)){
+          yArr.push({y:score.count,color:'#FF6384'})
+        }else{
+          yArr.push(score.count)
+        }
+      })
+      console.log(yArr)
+      var ctx = this.$refs.myChart;
+      Highcharts.chart('container',{
+          title: {
+              text: ''
+          },
+          xAxis: {
+              categories: xArr,
+              title: {
+                text: '分数段'
               }
+          },
+          yAxis: [{ // Primary yAxis
+            labels: {
+                format: '{value}人',
+                style: {
+                    color: Highcharts.getOptions().colors[0]
+                }
+            },
+            title: {
+                text: '人数',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
             }
-        }, {
-            type: 'spline',
-            name: '平均值',
-            data: [3, 2, 1, 3, 4],
-            marker: {
-                lineWidth: 2,
-                lineColor: Highcharts.getOptions().colors[3],
-                fillColor: 'white'
-            }
+        }, { // Primary yAxis
+            labels: {
+                format: '{value}人',
+                style: {
+                    color: Highcharts.getOptions().colors[0]
+                }
+            },
+            title: {
+                text: '',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            } 
         }],
-        
-    });
-
+          labels: {
+              items: [{
+                  html: '',
+                  style: {
+                      left: '100px',
+                      top: '18px',
+                      color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                  }
+              }]
+          },
+          series: [{
+              type: 'column',
+              name: '各分数段人数',
+              data: yArr
+              
+          }, {
+              type: 'spline',
+              name: '各分数段人数',
+              data: yArr,
+              marker: {
+                  lineWidth: 2,
+                  lineColor: Highcharts.getOptions().colors[3],
+                  fillColor: 'white'
+              },
+              dataLabels: {
+                enabled: true,
+                color: '#FFFFFF',
+                align: 'center',
+                format: '{point.y:.0f}', // one decimal
+                y: 0, // 10 pixels down from the top
+                x:0,
+                style: {
+                    fontSize: '12px',
+                    fontFamily: 'proxima-nova, sans-serif'
+                }
+              }
+          }],
+          
+      });
+    }
   },
   components: {
-    summarize
+    summarize,
+    rankchart,
+    trankchart
   }
 }
 </script>
@@ -94,7 +135,7 @@ export default {
 <style>
 .demo{
   display: inline-block;
-  height: 20px;
+  height: 15px;
   width: 30px;
   background: rgba(255, 99, 132, 1);
 }
