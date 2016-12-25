@@ -9,9 +9,7 @@
     <detailScore :dataall="dataAll"/>
     <tComment :dataall="dataAll"/>
     <ad :dataall="dataAll"/>
-    <div class="shareInfo">
-    将自己的考情报告分享到朋友圈，5位好友点击后即可查看个人在任课老师学生中的排名，了解自己在老师心目中的位置哦!
-    </div>
+
   </div>
 	</div>
 </template>
@@ -141,12 +139,5 @@ export default {
     box-shadow: 0 1px 0 #f2f4f5;
     background: #fff;
 }
-.shareInfo{
-    background: #fff;
-    color: #000;
-    font-size: 14px;
-    text-align: left;
-    padding: 4px;
-    font-weight: 900;
-}
+
 </style>

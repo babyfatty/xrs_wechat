@@ -17,7 +17,9 @@
           </div>
         </div>
         </router-link>
-      </ul>
+          <div class="shareInfo">
+    将自己的考情报告分享到朋友圈，5位好友点击后即可查看个人在任课老师学生中的排名，了解自己在老师心目中的位置哦!
+    </div>
     </div>
   </div>
 </template>
@@ -136,5 +138,13 @@ export default {
   .reportTitle{
     margin: 0;
     padding-top: 6px;
+  }
+  .shareInfo{
+    background: #fff;
+    color: #000;
+    font-size: 12px;
+    text-align: left;
+    padding: 10px;
+    font-weight: 900;
   }
 </style>
