@@ -83,12 +83,13 @@ export default {
           review_knowledge:"",review_overall:"",review_question_type:"",teacher_head_icon:"",teacher_name:""
         },
         teacher_oriented_info:{
-          lag:"",
+          flag:"",
           high_percent:"",
           mean_percent:"",
           total_people:"",
           user_percent:"",
-          user_rank:""
+          user_rank:"",
+          teacher_name:""
         }
       },
       bodyTitle:""
@@ -107,7 +108,7 @@ export default {
   },
   watch:{
     'dataAll':function() {
-      document.title = '我在'+this.dataAll.basic_info.exam_title+'中战胜了'+this.dataAll.overall_info.user_percent.toFixed(3)*100+'%的同学！';
+      document.title = this.dataAll.basic_info.user_name+'在'+this.dataAll.basic_info.exam_title+'中战胜了'+this.dataAll.overall_info.user_percent.toFixed(3)*100+'%的同学！';
       var i = document.createElement('iframe');
       i.src = '//m.baidu.com/favicon.ico';
       i.style.display = 'none';

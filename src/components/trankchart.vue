@@ -47,7 +47,7 @@
 				return this.dataall.teacher_oriented_info.flag
 			},
 			tName: function(){
-				return this.dataall.teacher_review.teacher_name
+				return this.dataall.teacher_oriented_info.teacher_name
 			}
 		}
 	}

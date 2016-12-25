@@ -52,6 +52,9 @@ export default {
               plotBorderWidth: null,
               plotShadow: false
           },
+          credits:{
+              enabled:false
+          },
           title: {
               text: '知识点分数比重分布'
           },

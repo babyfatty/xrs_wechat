@@ -57,6 +57,9 @@ export default {
               plotBorderWidth: null,
               plotShadow: false
           },
+          credits:{
+              enabled:false
+          },
           title: {
               text: '题型分数比重分布'
           },

@@ -1,7 +1,11 @@
 <template>
 	<div class="overallReport reportSec">
+  <div class="rtitle">试卷说明</div>  
+
+    <div class="description"><div class="desDetail">{{dataall.overall_info.statement}}</div></div>
+
   <div class="rtitle">年级总体情况</div>  
-  <div  class="xcontainer">
+  <div  class="xcontainer"> 
     <div><i class="demo"></i>你所在的分数段</div>
     <div style="height:400px;min-width:200px" id="container"></div> 
   </div>
@@ -11,7 +15,6 @@
     <div class="highestScore scoreDesDetail"><div class="scroeTitle">本次考试最高分</div><div class="scoreSub">{{dataall.overall_info.highest_score}}</div></div>
     <rankchart :dataall="dataall"/>
     <trankchart :dataall="dataall"/>
-    <div class="description"><div class="desTitle">试卷说明:</div><div class="desDetail">{{dataall.overall_info.statement}}</div></div>
   </div>
   </div>
   <summarize  :summarize='dataall.overall_info.conclusion'/>
@@ -49,6 +52,9 @@ export default {
       Highcharts.chart('container',{
           title: {
               text: ''
+          },
+          credits:{
+              enabled:false
           },
           xAxis: {
               categories: xArr,
