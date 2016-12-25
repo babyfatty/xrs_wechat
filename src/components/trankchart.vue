@@ -30,15 +30,15 @@
 		computed:{
 			myrank:function(){
 				let pct = this.dataall.teacher_oriented_info.user_percent*1
-				return pct.toFixed(3)*100+'%'
+				return (pct*100).toFixed(2)+'%'
 			},
 			goodrank:function(){
 				let pct = 1-this.dataall.teacher_oriented_info.high_percent*1
-				return pct.toFixed(3)*100+'%'
+				return (pct*100).toFixed(2)+'%'
 			},
 			fairrank:function(){
 				let pct = this.dataall.teacher_oriented_info.mean_percent*1
-				return pct.toFixed(3)*100+'%'
+				return (pct*100).toFixed(2)+'%'
 			},
 			rank:function(){
 				return this.dataall.teacher_oriented_info.user_rank*1
@@ -61,33 +61,34 @@
 		font-size: 17px;
 	}
 	.rankchart{
-		height: 40px;
+	    height: 40px;
 	    background: #eee;
 	    margin: 0 auto;
 	    position: relative;
 	    width: 80%;
+	    margin-bottom: 18px;
 	}
 	.rc{
-		height: 54px;
-		position: absolute;
-		bottom: -7px;
+	    height: 58px;
+	    position: absolute;
+	    bottom: -9px;
 	}
 	.goodMore{
 		width: 30%;
 	}
 	.fair{
-		border-right: 4px solid #333;
+		border-right: 2px solid #333;
 	}
 	.good{
 		right: 0;
-		border-left: 4px solid #333;
+		border-left: 2px solid #333;
 	}
 	.your{
-		border-right: 4px solid #333;
+		border-right: 2px solid #2db7f5;
 	}
 	.subrc{
 	    height: 40px;
-	    margin: 7px 0;
+	    margin: 9px 0;
 	}
 	.fair .subrc{
 	    background: rgba(255, 99, 132, 1);
@@ -98,21 +99,24 @@
 	}
 	.av{
 		position: absolute;
-	    top: -20px;
+	    bottom: -20px;
 	    right: -24px;
 	    color: #000;
+	    font-size: 13px;
 	}
 	.gd{
 		position: absolute;
-	    top: -20px;
+	    bottom: -20px;
 	    left: -24px;
 	    color: #000;
+	    font-size: 13px;
 	}
 	.yr{
 		position: absolute;
 	    top: -20px;
 	    right: -24px;
-	    color: #000;
+	    color: #2db7f5;
+	    font-weight: bold;
 	}
 	.rankContainer{
 		padding: 20px 0;

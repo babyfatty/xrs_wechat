@@ -17,9 +17,9 @@
           </div>
         </div>
         </router-link>
-          <div class="shareInfo">
-    将自己的考情报告分享到朋友圈，5位好友点击后即可查看个人在任课老师学生中的排名，了解自己在老师心目中的位置哦!
-    </div>
+        <div class="shareInfo">
+          <img src="../assets/Wechatshare.png">
+        </div>
     </div>
   </div>
 </template>

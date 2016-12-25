@@ -3,8 +3,8 @@
     <thead class='rd-table-thead'>
       <tr class='rd-table-th'>
         <td class='rd-table-td'>{{title}}</td>
-        <td class='rd-table-td'>我的正确率</td>
-        <td class='rd-table-td'>平均正确率</td>
+        <td class='rd-table-td'>得分</td>
+        <td class='rd-table-td'>平均得分</td>
       </tr>
     </thead>
     <tbody>
@@ -34,18 +34,19 @@ export default {
       let o = val.overall
       let temArr = []
       p.forEach((ele,index)=>{
+          let value = o[index].total_value
           if(!!ele.tyid){
             temArr.push({
               tyid:ele.tyid,
-              score_rate:ele.score_rate,
-              mean_sr:o[index].mean_sr
+              score_rate:(ele.score_rate*value).toFixed(2),
+              mean_sr:(o[index].mean_sr*value).toFixed(2)
             })
             this.title="题型"
           }else{
             temArr.push({
               tyid:ele.kpid,
-              score_rate:ele.score_rate,
-              mean_sr:o[index].mean_sr
+              score_rate:(ele.score_rate*value).toFixed(2),
+              mean_sr:(o[index].mean_sr*value).toFixed(2)
             })
             this.title="知识点"
           }
@@ -59,13 +60,13 @@ export default {
       let o = this.xtable.overall
       let temArr = []
       p.forEach(function(ele,index){
+          let value = o[index].total_value
           temArr.push({
             tyid:ele.tyid,
-            score_rate:ele.score_rate,
-            mean_sr:o[index].mean_sr
+            score_rate:(ele.score_rate*value).toFixed(2),
+            mean_sr:(o[index].mean_sr*value).toFixed(2)
           })
       })
-      console.log(temArr)
       return temArr
     }
   }

@@ -19,7 +19,7 @@
         
         <td class='rd-table-td' v-else v-bind:style="{fontWeight:900,color:'#228B22'}">{{data.user_score}}</td>
         
-        <td class='rd-table-td'>{{data.mean_score}}</td>
+        <td class='rd-table-td'>{{data.mean_score.toFixed(2)}}</td>
       </tr>
     </tbody>
    </table>

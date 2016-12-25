@@ -12,7 +12,7 @@
       </div>
       
       <div class="xcontainer">
-        <div class="tableTitle">知识点详情:</div>
+        <div class="tableTitle">题型详情:</div>
        <xtable :xtable="dataall.question_type_info"/>
       </div>
        <summarize :summarize="dataall.question_type_info.conclusion"/>
