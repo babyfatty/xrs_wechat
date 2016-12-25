@@ -1,7 +1,7 @@
 <template>
 <div>
     <div id="xsrMain">
-      <h4>学而思 Test Report System</h4>
+      <h3>学而思 Test Report System</h3>
       <img class="img" src="./assets/logo.png">
     <login></login>
   </div>
@@ -24,8 +24,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
+body{
+  margin: 0;
+}
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

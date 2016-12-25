@@ -99,22 +99,23 @@ a {
     color: #FF6384;
 }
 .loginField{
-    font-size: .9rem;
-    line-height: 1.7rem;
+    font-size: 1rem;
+    line-height: 2.5rem;
     color: #666;
     background-color: #fff;
     background-image: none;
     border: 1px solid #d9d9d9;
     border-radius: 4px;
     padding: .1rem .5rem;
-    width: 60%;
+    width: 70%;
     margin: 0 auto;
     outline: none;
     box-sizing: border-box;
+    height: 2.5rem;
 }
 .loginBtn{
     display: block;
-    width: 60%;
+    width: 70%;
     margin: 1rem auto;
     text-align: center;
     vertical-align: middle;
@@ -124,8 +125,8 @@ a {
     border: 1px solid transparent;
     white-space: nowrap;
     padding: .3rem;
-    font-size: .8rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.5rem;
     min-width: 5rem;
     border-radius: 4px;
     transition: background .2s;
@@ -133,6 +134,7 @@ a {
     color: #57c5f7;
     background-color: #fff;
     border-color: #57c5f7;
+    height: 2.5rem;
 }
 .loginBtn:hover {
     color: #57c5f7;

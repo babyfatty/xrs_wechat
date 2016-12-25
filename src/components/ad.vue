@@ -1,6 +1,6 @@
 <template>
   <div class="ad">
-    <a :href="dataall.ad">
+    <a :href="dataall.ad.redirect_url">
       <img :src="dataall.ad.img">
     </a>
     <!-- {{dataall.ad.img}} -->

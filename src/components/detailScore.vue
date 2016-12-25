@@ -14,7 +14,11 @@
       <tr class='rd-table-th' v-for="data in dataall.question_detail_info">
         <td class='rd-table-td'>{{data.index}}</td>
         <td class='rd-table-td'>{{data.value}}</td>
-        <td class='rd-table-td'>{{data.user_score}}</td>
+
+        <td class='rd-table-td' v-if="data.user_score*1<=data.mean_score*1">{{data.user_score}}</td>
+        
+        <td class='rd-table-td' v-else v-bind:style="{fontWeight:900,color:'#228B22'}">{{data.user_score}}</td>
+        
         <td class='rd-table-td'>{{data.mean_score}}</td>
       </tr>
     </tbody>

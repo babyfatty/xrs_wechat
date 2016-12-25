@@ -1,5 +1,5 @@
-<template v-if="show">
-	<div class="rankContainer">
+<template>
+	<div class="rankContainer" v-if="show">
 		<h3>同门排名分布</h3>
 		<div class="rankchart">
 			<div class="rc fair" v-bind:style="{width:fairrank}">
@@ -15,7 +15,7 @@
 			</div>
 		</div>
 		<div class="subranktitle">
-			在老师名下排名第{{rank}}
+			您在{{tName}}老师名下排名第{{rank}}
 		</div>
 		<div class="subranktitle">
 			战胜了{{myrank}}的同学！
@@ -43,8 +43,11 @@
 			rank:function(){
 				return this.dataall.teacher_oriented_info.user_rank*1
 			},
-			show : function(){
-				return this.dataall.teacher_oriented_info.flag*1
+			show: function(){
+				return this.dataall.teacher_oriented_info.flag
+			},
+			tName: function(){
+				return this.dataall.teacher_review.teacher_name
 			}
 		}
 	}

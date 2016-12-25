@@ -176,7 +176,7 @@ export default {
   line-height: 30px;
   text-align: left;
   background: #f7fafc;
-
+  padding: 5px;
 }
 .scroeTitle,.desTitle{
   color: #000;

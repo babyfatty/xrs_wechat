@@ -9,6 +9,9 @@
     <detailScore :dataall="dataAll"/>
     <tComment :dataall="dataAll"/>
     <ad :dataall="dataAll"/>
+    <div class="shareInfo">
+    将自己的考情报告分享到朋友圈，5位好友点击后即可查看个人在任课老师学生中的排名，了解自己在老师心目中的位置哦!
+    </div>
   </div>
 	</div>
 </template>
@@ -89,17 +92,34 @@ export default {
           user_percent:"",
           user_rank:""
         }
-      }
+      },
+      bodyTitle:""
     }
   },
   created(){
     this.$http.get('http://trsapi.xesfun.com/front/report/data',{params:{id:this.$route.params.id}}).then((response) => {
           // success callback
-          console.log(response)
-          this.dataAll = response.body.content
+          if(response.body.result_code===0){
+            this.dataAll = response.body.content 
+
+          }
         }, (response) => {
           // error callback
         });
+  },
+  watch:{
+    'dataAll':function() {
+      document.title = '我在'+this.dataAll.basic_info.exam_title+'中战胜了'+this.dataAll.overall_info.user_percent.toFixed(3)*100+'%的同学！';
+      var i = document.createElement('iframe');
+      i.src = '//m.baidu.com/favicon.ico';
+      i.style.display = 'none';
+      i.onload = function() {
+        setTimeout(function(){
+          i.remove();
+        }, 9)
+      }
+      document.body.appendChild(i);
+    }
   }
 }
 
@@ -120,5 +140,13 @@ export default {
     border-radius: 4px;
     box-shadow: 0 1px 0 #f2f4f5;
     background: #fff;
+}
+.shareInfo{
+    background: #fff;
+    color: #000;
+    font-size: 14px;
+    text-align: left;
+    padding: 4px;
+    font-weight: 900;
 }
 </style>
