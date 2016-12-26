@@ -39,7 +39,7 @@ export default {
     border-bottom: none;
   }
   .title{
-    width: 26%;
+    width: 25%;
     text-align: right;
   }
   .detail{
