@@ -30,6 +30,7 @@ export default {
     display: flex;
     height: 35px;
     line-height: 35px;
+    font-size: 14px;
     box-sizing:border-box;
     background: #f7fafc;
     border-bottom: 2px solid #fff;
@@ -38,11 +39,11 @@ export default {
     border-bottom: none;
   }
   .title{
-    flex:1;
+    width: 26%;
     text-align: right;
   }
   .detail{
-    flex:2;
+    width: 74%;
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;

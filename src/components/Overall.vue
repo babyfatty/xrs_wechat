@@ -45,16 +45,18 @@ export default {
       var xData=this.dataall.overall_info
       var xArr = []
       var yArr = []
+      var zArr = []
       var myscore = this.dataall.basic_info.user_total_score
       xData.score_segments.forEach(function(score){
         xArr.push(score.start_point+'-'+score.end_point)
         if((myscore*1<=score.end_point*1)&&(myscore*1>score.start_point*1)){
           yArr.push({y:score.count,color:'#FF6384'})
+          zArr.push({y:score.count+20})
         }else{
           yArr.push(score.count)
+          zArr.push(score.count+20)
         }
       })
-      console.log(yArr)
       var ctx = this.$refs.myChart;
       Highcharts.chart('container',{
           title: {
@@ -109,28 +111,28 @@ export default {
           series: [{
               type: 'column',
               name: '各分数段人数',
-              data: yArr
-              
-          }, {
-              type: 'spline',
-              name: '各分数段人数',
               data: yArr,
-              marker: {
-                  lineWidth: 2,
-                  lineColor: Highcharts.getOptions().colors[3],
-                  fillColor: 'white'
-              },
               dataLabels: {
                 enabled: true,
                 color: '#FFFFFF',
                 align: 'center',
                 format: '{point.y:.0f}', // one decimal
-                y: 0, // 10 pixels down from the top
+                y: -10, // 10 pixels down from the top
                 x:0,
                 style: {
                     fontSize: '12px',
                     fontFamily: 'proxima-nova, sans-serif'
                 }
+              }
+              
+          }, {
+              type: 'spline',
+              name: '各分数段人数',
+              data: zArr,
+              marker: {
+                  lineWidth: 2,
+                  lineColor: Highcharts.getOptions().colors[3],
+                  fillColor: 'white'
               }
           }],
           
