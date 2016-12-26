@@ -89,14 +89,14 @@
 	.av{
 		position: absolute;
 	    bottom: -20px;
-	    right: -24px;
+	    right: -4px;
 	    color: #000;
 	    font-size: 13px;
 	}
 	.gd{
 		position: absolute;
 	    bottom: -20px;
-	    left: -24px;
+	    left: -4px;
 	    color: #000;
 	    font-size: 13px;
 	}

@@ -19,7 +19,7 @@ export default {
       if(Array.isArray(this.summarize)){
         return this.summarize
       }else{
-        return [this.summarize]
+        return [{content:this.summarize}]
       }
     }
   }

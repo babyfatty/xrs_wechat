@@ -96,11 +96,10 @@ export default {
     }
   },
   created(){
-    this.$http.get('http://trsapi.xesfun.com/front/report/data',{params:{id:this.$route.params.id}}).then((response) => {
+    this.$http.get('http://trsapi.xesfun.com/front/report/data',{params:{sid:this.$route.params.sid,eid:this.$route.params.eid}}).then((response) => {
           // success callback
           if(response.body.result_code===0){
             this.dataAll = response.body.content 
-
           }
         }, (response) => {
           // error callback

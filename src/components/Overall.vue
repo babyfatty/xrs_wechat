@@ -17,7 +17,14 @@
     <trankchart :dataall="dataall"/>
   </div>
   </div>
-  <summarize  :summarize='dataall.overall_info.conclusion'/>
+  <div class="summarize">
+    <div class="desTitle">总结：</div>
+    <div class="summarizeWrapper">
+         <div class="smItem">
+            {{dataall.overall_info.conclusion}}
+         </div>
+    </div>
+  </div>
   </div>
 </template>
 
@@ -199,5 +206,24 @@ export default {
   }
   .xcontainer{
     margin: 10px 0;
+  }
+  .summarize{
+    background: #fff;
+    padding: 3px 20px;
+    text-align: left;
+}
+
+.tTitle{
+  text-align: left;
+  border-bottom: 2px solid #fff;
+  padding: 0 20px;
+  background: #fff;
+  color: #000;
+  font-weight: bold;
+}
+  .summarizeWrapper{
+  padding: 5px;
+  background: #f7fafc;
+  text-align: left;
   }
 </style>
