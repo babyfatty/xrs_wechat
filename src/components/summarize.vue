@@ -2,8 +2,8 @@
 	<div class="summarize">
     <div class="desTitle">总结：</div>
     <div class="summarizeWrapper">
-         <div v-for="item in items">
-            {{item}}
+         <div class="smItem" v-for="item in items">
+            <span class="smTitle">{{item.key}}:</span>{{item.content}}
          </div>
     </div>
   </div>
@@ -67,5 +67,12 @@ export default {
     align-items: center;
     background: #f7fafc;
     position: relative;
+  }
+  .smTitle{
+    font-weight: bold;
+    color: #2db7f5;
+  }
+  .smItem{
+    padding: 3px 0;
   }
 </style>

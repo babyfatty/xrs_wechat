@@ -58,7 +58,7 @@ export default {
   }
   .rd-table-th {
     color: rgba(0,0,0,.870588);
-    height: 3rem;
+    height: 1.5rem;
     border-bottom: 1px solid #e9e9e9;
   }
   tbody .rd-table-td{

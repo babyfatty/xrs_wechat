@@ -14,8 +14,8 @@
            <img src="../assets/quot2.png">
           </i>
           <div>
-            <div>{{dataall.teacher_review.review_knowledge}}</div>
             <div>{{dataall.teacher_review.review_overall}}</div>
+            <div>{{dataall.teacher_review.review_knowledge}}</div>
             <div>{{dataall.teacher_review.review_question_type}}</div>
           </div></div>
     </div>
