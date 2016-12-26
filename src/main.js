@@ -18,7 +18,7 @@ const routes = [
   { path: '/', component: App },
   { path: '/reportlist/:uid', component: ReportList, name:'list' },
   { 
-  	path: '/report/:sid/:eid', 
+  	path: '/report/:uid/:eid', 
   	component: Report ,
   	name:'report',
   	children : [

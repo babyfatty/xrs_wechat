@@ -44,5 +44,8 @@ export default {
   .detail{
     flex:2;
     text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 </style>

@@ -5,7 +5,7 @@
       <basic-info :uname='name'/> 
       <div id="reportList">
         <h3 class="reportTitle">报告列表</h3>
-        <router-link :to="{name:'overall',params:{sid:report.sid,eid:report.eid}}" class="link"  v-bind:class="{ active: report.viewed }"  v-for="report in reports"> 
+        <router-link :to="{name:'overall',params:{eid:report.eid}}" class="link"  v-bind:class="{ active: report.viewed }"  v-for="report in reports"> 
         <div class="reportSec">
           <h3 class="rName">
             {{report.exam_title}}
