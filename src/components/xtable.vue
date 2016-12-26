@@ -44,7 +44,7 @@ export default {
               tyid:ele.tyid,
               score_rate:myScore,
               mean_sr:meanScore,
-              score_vary: (myScore-meanScore)>0?"高"+(myScore-meanScore).toFixed(2)+"分":"低"+(mean_sr-score_rate).toFixed(2)+"分",
+              score_vary: (myScore-meanScore)>0?"高"+(myScore-meanScore).toFixed(2)+"分":"低"+(meanScore-myScore).toFixed(2)+"分",
               score_vary_positive: (myScore-meanScore)>0
             })
             this.title="题型"
@@ -53,7 +53,7 @@ export default {
               tyid:ele.kpid,
               score_rate:myScore,
               mean_sr:meanScore,
-              score_vary: (myScore-meanScore)>0?"高"+(myScore-meanScore).toFixed(2)+"分":"低"+(mean_sr-score_rate).toFixed(2)+"分",
+              score_vary: (myScore-meanScore)>0?"高"+(myScore-meanScore).toFixed(2)+"分":"低"+(meanScore-myScore).toFixed(2)+"分",
               score_vary_positive: (myScore-meanScore)>0
             })
             this.title="知识点"
