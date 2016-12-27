@@ -111,20 +111,7 @@ export default {
           series: [{
               type: 'column',
               name: '各分数段人数',
-              data: yArr,
-              dataLabels: {
-                enabled: true,
-                color: '#FFFFFF',
-                align: 'center',
-                format: '{point.y:.0f}', // one decimal
-                y: -10, // 10 pixels down from the top
-                x:0,
-                style: {
-                    fontSize: '12px',
-                    fontFamily: 'proxima-nova, sans-serif'
-                }
-              }
-              
+              data: yArr
           }, {
               type: 'spline',
               name: '各分数段人数',
