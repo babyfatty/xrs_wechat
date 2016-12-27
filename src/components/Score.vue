@@ -7,7 +7,7 @@
       </div>
       
       <div class="xcontainer">
-         题型得分布
+         题型得分分布
          <canvas id="SocreRadarChart" width="300" ref="SocreRadarChart" height="300"></canvas>
       </div>
       
