@@ -5,13 +5,10 @@
 
         <div class="login">
       <form v-on:submit.prevent="goLogin">
-            <div v-if="invaild" class="errmsg">
-              *请输入数字
-            </div>
             <div v-if="acvaild" class="errmsg">
               *账户不存在
             </div>
-          <input type="number"  v-model="uid" class="loginField" placeholder="输入学员编号" v-on:click="acvaild = false" v-bind:class="{ err: acvaild }"/>
+          <input type="text"  v-model="uid" class="loginField" placeholder="输入学员编号" v-on:click="acvaild = false" v-bind:class="{ err: acvaild }"/>
           <button class="loginBtn">查询</button>
       </form>
 </div>
@@ -19,10 +16,6 @@
 </template>
 
 <script>
-let vaildate = (input)=>{
-   let reg = new RegExp("^[0-9]*$")
-   if(!reg.test(input)) return true
-}
 export default {
   name: 'login',
   data () {
@@ -36,10 +29,6 @@ export default {
   },
   methods: {
     goLogin () {//方法，定义路由跳转，注意这里必须使用this，不然报错
-        if(vaildate(this.uid)){
-          this.invaild = true
-          return
-        } 
         this.$http.get('http://trsapi.xesfun.com/front/user/searchByStudentID',{params:{id:this.uid}}).then((response) => {
           if(response.body.result_code===0){
             this.$router.push({name:"list","params":{uid:this.uid}});
