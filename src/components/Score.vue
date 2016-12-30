@@ -76,6 +76,16 @@ export default {
           type: 'radar',
           data: {
             labels: radarLable,
+            options:{
+              scaleOverride:true,
+              scaleStartValue:0,
+              scale: {
+                reverse: true,
+                ticks: {
+                    beginAtZero: true
+                }
+              }
+            },
             datasets: [
                 {
                     label: "平均正确率",

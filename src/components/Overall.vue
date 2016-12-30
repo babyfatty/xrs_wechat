@@ -114,7 +114,7 @@ export default {
               data: yArr
           }, {
               type: 'spline',
-              name: '各分数段人数',
+              name: '分数段人数',
               data: zArr,
               marker: {
                   lineWidth: 2,
@@ -122,6 +122,15 @@ export default {
                   fillColor: 'white'
               }
           }],
+          tooltip: {
+            valueSuffix: '人',
+            formatter:function(){
+              var x = '<b>' + this.x + '</b><br/>';
+             if(this.series.name==="分数段人数"){
+                return x+this.series.name+":"+(this.y-20)
+             }
+            }
+        },
           
       });
     }
